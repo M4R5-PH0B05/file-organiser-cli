@@ -37,16 +37,22 @@ fn main() {
             1 => {
                 // Enter the choice loop
                 loop {
+                    println!{"{}","Type EXIT to exit.".red()}
                     // Ask for a file path for the file
                     let file_to_move = input_str("Please input the path ( Relative paths allowed ) to the file that you would like to move:");
                     // Ask for a tag to apply to the file
+                    if file_to_move.to_uppercase() == "EXIT" {
+                        break;
+                    }
                     println!("Which tag would you like to apply to this file? ");
                     // Option to SHOW all tags
-                    let tag_to_apply = input_str("Type 'SHOW' for a list of your tags");
+                    let tag_to_apply = input_str("Type 'SHOW' for a list of your tags.");
                     // Show tags if asked for
                     if tag_to_apply.to_uppercase() == "SHOW" {
                         show_tags(&tags)
                     // If a tag is entered
+                    } else if tag_to_apply.to_uppercase() == "EXIT" {
+                        break;
                     } else {
                         // Check to see if the tag actually exists
                         if let Some(path) = tags.get(&tag_to_apply) {
