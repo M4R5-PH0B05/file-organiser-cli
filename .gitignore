@@ -1,3 +1,5 @@
 /target
 .DS_Store
 **/*.rs.bk
+.idea/
+.DS_Store
